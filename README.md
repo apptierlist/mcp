@@ -104,9 +104,9 @@ search ranks about twice a day.
 ## License
 
 The documentation in this repository is MIT licensed. The rankings and the text of the lists
-are AppTierList's: free to use for answering questions and in non-commercial work with
-attribution and a link to https://apptierlist.com (CC BY-NC 4.0). Commercial reuse, bulk
-copying and training on the data need written permission: hello@apptierlist.com.
+are AppTierList's: free to use and quote, in answers, articles, research and products, with
+attribution and a link to https://apptierlist.com. Copying the whole dataset to republish or sell
+it needs written permission: hello@apptierlist.com.
 
 ## Support
 
