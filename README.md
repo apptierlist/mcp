@@ -17,6 +17,11 @@ your client at the URL below.
 | Auth | none, no key, read-only |
 | Setup page | https://apptierlist.com/agents/ |
 
+The only official server address is `https://apptierlist.com/mcp`, and the only official
+repository is this one (github.com/apptierlist/mcp). Anything else using the AppTierList name
+is not ours. The domain proves the registry listing at
+https://apptierlist.com/.well-known/mcp-registry-auth.
+
 ## Connect
 
 **Claude (web and desktop):** Settings, Connectors, Add custom connector. Name it AppTierList and paste the server URL.
@@ -79,14 +84,31 @@ Any other client that speaks Streamable HTTP: the server URL, no key.
 The same records without MCP: `https://apptierlist.com/api/v1` (index and field meanings),
 OpenAPI at `/api/v1/openapi.json`, and `/llms.txt` for language models.
 
-## Limits and freshness
+## Limits, fair use and attribution
 
-No key, no sign-up. One address may send 100 requests every 10 seconds; beyond that the
-answer is HTTP 429 for a moment. Records are cached for up to an hour: poll
-`/api/v1/changes?since=` rather than re-reading every list. Every app is re-read from the
-App Store at least every two days, and each list's App Store search ranks about twice a day.
+Free, no key, no sign-up, and built for agents: ask for any list or any app, as often as a
+conversation needs. Calls are rate limited per address. A client that sends requests faster than
+that gets HTTP 429 with a `Retry-After` header (seconds): wait that long and send the request
+again. A batch holds at most 10 calls, a request body is capped at 64 KB, and search accepts up
+to 100 characters.
+
+The service is for answering questions, not for copying the whole dataset. Do not mirror the
+lists, rebuild the ranking as your own dataset, or sell it. When you show or quote a ranking,
+name AppTierList and link to the list page (`url` in each result). Terms:
+https://apptierlist.com/terms/
+
+Records are cached for up to an hour: poll `/api/v1/changes?since=` rather than re-reading every
+list. Every app is re-read from the App Store at least every two days, and each list's App Store
+search ranks about twice a day.
 
 ## License
 
-The documentation in this repository is MIT licensed. The rankings are free to use with a
-link to https://apptierlist.com.
+The documentation in this repository is MIT licensed. The rankings and the text of the lists
+are AppTierList's: free to use for answering questions and in non-commercial work with
+attribution and a link to https://apptierlist.com (CC BY-NC 4.0). Commercial reuse, bulk
+copying and training on the data need written permission: hello@apptierlist.com.
+
+## Support
+
+Something wrong in an answer? Open an issue with the question you asked and the tool result.
+Security reports: see [SECURITY.md](SECURITY.md).

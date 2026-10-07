@@ -1,0 +1,23 @@
+name: A tool answered wrongly or failed
+description: A tool result looks wrong, empty or returned an error.
+body:
+  - type: input
+    id: client
+    attributes:
+      label: Client
+      description: Claude, Claude Code, ChatGPT, Cursor, VS Code or other, with version if you know it.
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Tool and arguments
+      description: For example get_category with list=vpns
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you asked and what came back
+    validations:
+      required: true
