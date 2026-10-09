@@ -15,7 +15,7 @@ trackers and about 50 more lists) from public App Store signals: rating, how man
 the App Store's own search rank in five countries, and how recently it was updated. Rankings are
 computed and cannot be bought. Ten read-only tools: search_apps (plain words: "apps like calm"),
 get_category, get_app, explain_ranking, compare_apps, recent_changes, list_categories, health, and
-search/fetch for ChatGPT connectors. Free, no key, rate limited per address (HTTP 429 with Retry-After).
+search/fetch for ChatGPT connectors. Free, no key, 10 requests per 10 seconds per address for now (HTTP 429 with Retry-After).
 
 **Example prompts:**
 - What are the best VPN apps for iPhone?
