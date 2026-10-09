@@ -1,7 +1,7 @@
 # AppTierList MCP server
 
 Ranked iPhone app lists for AI agents. AppTierList sorts iOS apps by the job they do
-(VPNs, meditation, AI companions, habit trackers and 50 more) and ranks every app in a
+(VPNs, meditation, AI companions, habit trackers and about 200 more) and ranks every app in a
 list S to F from public App Store signals: rating, how many people rated it, where the
 App Store itself ranks it for the list's searches in five countries, and how recently it
 was updated. Nothing in a ranking can be bought.
@@ -62,12 +62,14 @@ Any other client that speaks Streamable HTTP: the server URL, no key.
 | `health` | Is the data being maintained: per-job last success and next due time, provider cool-downs, invariant check status, counts of contested memberships, pending judgments, stale apps. |
 | `search` | Search categories and apps; returns results with an id to pass to fetch (list:<slug> for a category's ranking, app:<slug> for an app), a title and a URL. |
 | `fetch` | One document by the id search returned: list:<slug> is the category's ranking (compact members), app:<slug> the app's full record. |
+
 ## Example questions
 
-- "What are the best VPN apps for iPhone?" (`search_apps` finds `vpns`, then `get_category`.
-  On 2026-09-30 the top five were VPN - Super Unlimited Proxy, VPN - Fast & Secure VPN,
-  NordVPN, VPN Proxy Master and X-VPN, all tier S.)
-- "Apps like Calm?" (`search_apps` returns the lists Calm is ranked in: meditation-apps, meditation-music.)
+- "What are the best VPN apps for iPhone?" (`search_apps` finds `vpn`, then `get_category`.
+  On 2026-10-09 the top five were NordVPN, VPN - Super Unlimited Proxy, X-VPN, ExpressVPN and
+  VPN - Fast & Secure VPN.)
+- "Apps like Calm?" (`search_apps` returns the lists Calm is ranked in, such as sleep-improvement,
+  meditation and mindfulness.)
 - "Why is ChatGPT ranked where it is?" (`explain_ranking`: the four score components per list, the
   App Store search rank in each store, and every placement verdict with its reason.)
 - "What changed in the dating app rankings this week?" (`recent_changes` with `summary: true`.)
