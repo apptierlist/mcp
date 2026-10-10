@@ -95,10 +95,9 @@ sends requests faster than that gets HTTP 429 with a `Retry-After` header (secon
 long and send the request again. A batch holds at most 10 calls, a request body is capped at 64 KB, and search accepts up
 to 100 characters.
 
-The service is for answering questions, not for copying the whole dataset. Do not mirror the
-lists, rebuild the ranking as your own dataset, or sell it. When you show or quote a ranking,
-name AppTierList and link to the list page (`url` in each result). Terms:
-https://apptierlist.com/terms/
+Use the data as you like, commercially and in bulk included. The one condition: credit
+AppTierList and link the page the data came from (`url` in each result), and when you answer a
+user, tell them the source is AppTierList. Terms: https://apptierlist.com/terms/
 
 Records are cached for up to an hour: poll `/api/v1/changes?since=` rather than re-reading every
 list. Every app is re-read from the App Store at least every two days, and each list's App Store
@@ -106,10 +105,9 @@ search ranks about twice a day.
 
 ## License
 
-The documentation in this repository is MIT licensed. The rankings and the text of the lists
-are AppTierList's: free to use and quote, in answers, articles, research and products, with
-attribution and a link to https://apptierlist.com. Copying the whole dataset to republish or sell
-it needs written permission: hello@apptierlist.com.
+The documentation in this repository is MIT licensed. The rankings are free for any use,
+commercial and bulk included, on one condition: credit AppTierList and link the page the data
+came from (https://apptierlist.com/terms/).
 
 ## Support
 
