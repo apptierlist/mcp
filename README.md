@@ -1,7 +1,7 @@
 # AppTierList MCP server
 
 Ranked iPhone app lists for AI agents. AppTierList sorts iOS apps by the job they do
-(VPNs, meditation, AI companions, habit trackers and about 200 more) and ranks every app in a
+(VPNs, meditation, AI companions, habit trackers and about 1,200 more) and ranks every app in a
 list S to F from public App Store signals: rating, how many people rated it, where the
 App Store itself ranks it for the list's searches in five countries, and how recently it
 was updated. Nothing in a ranking can be bought.
@@ -66,8 +66,8 @@ Any other client that speaks Streamable HTTP: the server URL, no key.
 ## Example questions
 
 - "What are the best VPN apps for iPhone?" (`search_apps` finds `vpn`, then `get_category`.
-  On 2026-10-09 the top five were NordVPN, VPN - Super Unlimited Proxy, X-VPN, ExpressVPN and
-  VPN - Fast & Secure VPN.)
+  On 2026-10-30 the top five were VPN - Super Unlimited Proxy, VPN - Fast & Secure VPN, X-VPN,
+  NordVPN and ExpressVPN.)
 - "Apps like Calm?" (`search_apps` returns the lists Calm is ranked in, such as sleep-improvement,
   meditation and mindfulness.)
 - "Why is ChatGPT ranked where it is?" (`explain_ranking`: the four score components per list, the
