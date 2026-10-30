@@ -91,7 +91,7 @@ OpenAPI at `/api/v1/openapi.json`, and `/llms.txt` for language models.
 
 Free, no key, no sign-up, and built for agents: ask for any list or any app, as often as a
 conversation needs. Rate limited per IP; heavy use or a used-up daily budget is refused (HTTP 429 or 403) with Retry-After where possible.
-This covers the MCP server, the API and the llms files; web pages are not limited. When a
+This covers the MCP server, the API and the llms files. When a
 `Retry-After` header is present, wait that many seconds and send the request again. A batch holds at most 10 calls, a request body is capped at 64 KB, and search accepts up
 to 100 characters.
 
