@@ -90,10 +90,8 @@ OpenAPI at `/api/v1/openapi.json`, and `/llms.txt` for language models.
 ## Limits, fair use and attribution
 
 Free, no key, no sign-up, and built for agents: ask for any list or any app, as often as a
-conversation needs. Calls to the MCP server, the API and the llms files are rate limited per IP
-address (web pages are not limited); heavy use gets HTTP 429 with a `Retry-After` header (seconds):
-wait that long and send the request again. Under heavy load, answers may come from cache and be
-a little older. A batch holds at most 10 calls, a request body is capped at 64 KB, and search accepts up
+conversation needs. Applies to the MCP server, the API and the llms files (web pages are not limited).
+Rate limited per IP; heavy use or a used-up daily budget is refused (HTTP 429 or 403) with Retry-After where possible. Wait that many seconds and send the request again. A batch holds at most 10 calls, a request body is capped at 64 KB, and search accepts up
 to 100 characters.
 
 Use the data as you like, commercially and in bulk included. The one condition: credit

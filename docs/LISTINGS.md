@@ -16,7 +16,7 @@ the App Store's own search rank in five countries, and how recently it was updat
 computed and cannot be bought. Eleven read-only tools: search_apps (plain words: "apps like calm"),
 find_alternatives, get_category, get_app, explain_ranking, compare_apps, recent_changes,
 list_categories, health, and search/fetch for ChatGPT connectors. Free and read-only, no key.
-Rate limited per IP; heavy use gets HTTP 429 with Retry-After. Under load, answers may come from cache.
+Rate limited per IP; heavy use or a used-up daily budget is refused (HTTP 429 or 403) with Retry-After where possible.
 
 **Example prompts:**
 - What are the best VPN apps for iPhone?
