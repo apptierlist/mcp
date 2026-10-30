@@ -13,9 +13,10 @@ Ranked iPhone app lists by use case, S to F, from public App Store data. Read-on
 AppTierList ranks iOS apps inside the job each one does (VPNs, meditation, AI companions, habit
 trackers and about 1,200 more lists) from public App Store signals: rating, how many people rated it,
 the App Store's own search rank in five countries, and how recently it was updated. Rankings are
-computed and cannot be bought. Ten read-only tools: search_apps (plain words: "apps like calm"),
-get_category, get_app, explain_ranking, compare_apps, recent_changes, list_categories, health, and
-search/fetch for ChatGPT connectors. Free, no key, 10 requests per 10 seconds per address for now (HTTP 429 with Retry-After).
+computed and cannot be bought. Eleven read-only tools: search_apps (plain words: "apps like calm"),
+find_alternatives, get_category, get_app, explain_ranking, compare_apps, recent_changes,
+list_categories, health, and search/fetch for ChatGPT connectors. Free and read-only, no key.
+Rate limited per IP; heavy use gets HTTP 429 with Retry-After. Under load, answers may come from cache.
 
 **Example prompts:**
 - What are the best VPN apps for iPhone?
