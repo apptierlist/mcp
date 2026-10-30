@@ -57,6 +57,7 @@ Any other client that speaks Streamable HTTP: the server URL, no key.
 | `get_app` | One app by slug or App Store id: App Store facts, generated summary, every category membership with tier/score/status/confidence, maker claim status, recent history. |
 | `search_apps` | Find categories by name or definition and apps by name, word by word: 'best free ai companion', 'apps like calm' (the categories Calm is ranked in), 'chat gpt'. |
 | `explain_ranking` | Why an app sits where it does: score components per category, per-store search ranks, every judge verdict (with reason, whether it is current for the app's present listing and the category's present definition), and the app's change history. |
+| `find_alternatives` | Apps that do the same job as a given app, in three groups: most similar (S to C tier), top rated in its main category, and best free; each with the reason it is there. |
 | `compare_apps` | Side-by-side tier, position, score and components for two or more apps in one category (or in every category they share when list is omitted). |
 | `recent_changes` | Append-only history: memberships added/removed/contested, tier changes, categories created/activated/archived, apps discovered/missing. |
 | `health` | Is the data being maintained: per-job last success and next due time, provider cool-downs, invariant check status, counts of contested memberships, pending judgments, stale apps. |
