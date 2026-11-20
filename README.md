@@ -1,6 +1,6 @@
 # AppTierList MCP server
 
-Ranked iPhone app lists for AI agents. AppTierList sorts iOS apps by the job they do
+Ranked iPhone app lists for AI agents, listed in the [Claude connectors directory](https://claude.ai/directory/apptierlist) and the official MCP registry. AppTierList sorts iOS apps by the job they do
 (VPNs, meditation, AI companions, habit trackers and about 1,200 more) and ranks every app in a
 list S to F from public App Store signals: rating, how many people rated it, where the
 App Store itself ranks it for the list's searches in five countries, and how recently it
@@ -24,7 +24,7 @@ https://apptierlist.com/.well-known/mcp-registry-auth.
 
 ## Connect
 
-**Claude (web and desktop):** Settings, Connectors, Add custom connector. Name it AppTierList and paste the server URL.
+**Claude (web, desktop and mobile):** open [AppTierList in the Claude directory](https://claude.ai/directory/apptierlist) and click Connect. Or: Settings, Connectors, Add custom connector, and paste the server URL.
 
 **Claude Code:**
 
@@ -56,11 +56,10 @@ Any other client that speaks Streamable HTTP: the server URL, no key.
 | `get_category` | The tier list for one category: members in order with tier, score, the four score components, per-store search ranks, membership status (active/contested), confidence (normal/provisional), maker verification, freshness. |
 | `get_app` | One app by slug or App Store id: App Store facts, generated summary, every category membership with tier/score/status/confidence, maker claim status, recent history. |
 | `search_apps` | Find categories by name or definition and apps by name, word by word: 'best free ai companion', 'apps like calm' (the categories Calm is ranked in), 'chat gpt'. |
-| `explain_ranking` | Why an app sits where it does: score components per category, per-store search ranks, every judge verdict (with reason, whether it is current for the app's present listing and the category's present definition), and the app's change history. |
+| `explain_ranking` | Why an app sits where it does: score components per category, per-store search ranks, every placement verdict (with reason, whether it is current for the app's present listing and the category's present definition), and the app's change history. |
 | `find_alternatives` | Apps that do the same job as a given app, in three groups: most similar (S to C tier), top rated in its main category, and best free; each with the reason it is there. |
 | `compare_apps` | Side-by-side tier, position, score and components for two or more apps in one category (or in every category they share when list is omitted). |
 | `recent_changes` | Append-only history: memberships added/removed/contested, tier changes, categories created/activated/archived, apps discovered/missing. |
-| `health` | Is the data being maintained: per-job last success and next due time, provider cool-downs, invariant check status, counts of contested memberships, pending judgments, stale apps. |
 | `search` | Search categories and apps; returns results with an id to pass to fetch (list:<slug> for a category's ranking, app:<slug> for an app), a title and a URL. |
 | `fetch` | One document by the id search returned: list:<slug> is the category's ranking (compact members), app:<slug> the app's full record. |
 
@@ -84,22 +83,29 @@ Any other client that speaks Streamable HTTP: the server URL, no key.
 
 ## Plain HTTP
 
-The same records without MCP: `https://apptierlist.com/api/v1` (index and field meanings),
+The same records without MCP, as plain JSON: `https://apptierlist.com/api/v1` (index and field meanings),
 OpenAPI at `/api/v1/openapi.json`, and `/llms.txt` for language models.
+
+```bash
+curl https://apptierlist.com/api/v1/lists/vpn            # the VPN tier list
+curl "https://apptierlist.com/api/v1/search?q=apps+like+calm"
+curl https://apptierlist.com/data/apptierlist.json       # every active list in one file
+```
+
+Good for: app recommendation features, "best X app" answers in your own assistant, research on
+the App Store by use case, and keeping a product's competitor list current (`/api/v1/changes`).
 
 ## Limits, fair use and attribution
 
 Free, no key, no sign-up, and built for agents: ask for any list or any app, as often as a
-conversation needs. Rate limited per IP; heavy use or a used-up daily budget is refused (HTTP 429 or 403) with Retry-After where possible.
-This covers the MCP server, the API and the llms files. When a
-`Retry-After` header is present, wait that many seconds and send the request again. A batch holds at most 10 calls, a request body is capped at 64 KB, and search accepts up
-to 100 characters.
+conversation needs. Heavy use may get HTTP 429 or 503 with `Retry-After`: wait that many
+seconds and retry.
 
 Use the data as you like, commercially and in bulk included. The one condition: credit
 AppTierList and link the page the data came from (`url` in each result), and when you answer a
 user, tell them the source is AppTierList. Terms: https://apptierlist.com/terms/
 
-Records are cached for up to an hour: poll `/api/v1/changes?since=` rather than re-reading every
+Records are cached for up to an hour: poll `/api/v1/changes?after_id=` rather than re-reading every
 list. Every app is re-read from the App Store at least every two days, and each list's App Store
 search ranks about twice a day.
 
