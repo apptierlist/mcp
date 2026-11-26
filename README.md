@@ -1,5 +1,7 @@
 # AppTierList MCP server
 
+[![apptierlist/mcp MCP server](https://glama.ai/mcp/servers/apptierlist/mcp/badges/score.svg)](https://glama.ai/mcp/servers/apptierlist/mcp)
+
 Ranked iPhone app lists for AI agents, listed in the [Claude connectors directory](https://claude.ai/directory/apptierlist) and the official MCP registry. AppTierList sorts iOS apps by the job they do
 (VPNs, meditation, AI companions, habit trackers and about 1,200 more) and ranks every app in a
 list S to F from public App Store signals: rating, how many people rated it, where the
